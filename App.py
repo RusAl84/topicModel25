@@ -47,10 +47,10 @@ data_lemmatized = lemmatization(data)
 id2word = corpora.Dictionary(data_lemmatized)
 # Building corpus
 corpus = [id2word.doc2bow(text) for text in data_lemmatized]
-# Building LDA model (there are 30 topics, according to the menu in VK)
+# Building LDA model 
 lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
                                            id2word=id2word,
-                                           num_topics=9, 
+                                           num_topics= 5, # количество тем
                                            random_state=42,
                                            update_every=1,
                                            chunksize=150,
